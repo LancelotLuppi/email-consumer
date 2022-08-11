@@ -35,7 +35,7 @@ public class KafkaConsumerService {
 
             emailService.sendEmail(
                     dadosEnvioEmail.getNome(),
-                    dadosEnvioEmail.getId(),
+                    dadosEnvioEmail.getIdCliente(),
                     dadosEnvioEmail.getEmail(),
                     TipoRequisicao.POST);
 
@@ -45,7 +45,7 @@ public class KafkaConsumerService {
 
             emailService.sendEmail(
                     dadosEnvioEmail.getNome(),
-                    dadosEnvioEmail.getId(),
+                    dadosEnvioEmail.getIdCliente(),
                     dadosEnvioEmail.getEmail(),
                     TipoRequisicao.PUT);
 
@@ -55,7 +55,7 @@ public class KafkaConsumerService {
 
             emailService.sendEmail(
                     dadosEnvioEmail.getNome(),
-                    dadosEnvioEmail.getId(),
+                    dadosEnvioEmail.getIdCliente(),
                     dadosEnvioEmail.getEmail(),
                     TipoRequisicao.DELETE);
 
@@ -65,7 +65,7 @@ public class KafkaConsumerService {
 
     private void getLog(ClienteEmailMessageDTO dadosEnvioEmail) {
         log.info("Email enviado com SUCESSO, dados cliente: id -> ["
-                +  dadosEnvioEmail.getId() + "], nome -> ["
+                +  dadosEnvioEmail.getIdCliente() + "], nome -> ["
                 + dadosEnvioEmail.getNome() + "], email -> ["
                 + dadosEnvioEmail.getEmail() + "]");
     }
