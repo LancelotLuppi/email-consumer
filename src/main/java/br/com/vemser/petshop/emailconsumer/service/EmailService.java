@@ -1,10 +1,12 @@
 package br.com.vemser.petshop.emailconsumer.service;
 
+import br.com.vemser.petshop.emailconsumer.dto.ClienteEmailMessageDTO;
 import br.com.vemser.petshop.emailconsumer.enums.TipoRequisicao;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -82,6 +84,10 @@ public class EmailService {
             }
             case DELETE -> {
                 Template template = fmConfiguration.getTemplate("delete-email-template.ftl");
+                html = FreeMarkerTemplateUtils.processTemplateIntoString(template, dados);
+            }
+            case MARKETING -> {
+                Template template = fmConfiguration.getTemplate("marketing-email-template.ftl");
                 html = FreeMarkerTemplateUtils.processTemplateIntoString(template, dados);
             }
         }

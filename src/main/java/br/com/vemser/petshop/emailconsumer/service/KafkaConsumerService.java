@@ -60,6 +60,16 @@ public class KafkaConsumerService {
                     TipoRequisicao.DELETE);
 
             getLog(dadosEnvioEmail);
+        } else if(partition == TipoRequisicao.MARKETING.ordinal()){
+            log.info("ENVIANDO EMAIL DE MARKETING");
+
+            emailService.sendEmail(
+                    dadosEnvioEmail.getNome(),
+                    dadosEnvioEmail.getIdCliente(),
+                    dadosEnvioEmail.getEmail(),
+                    TipoRequisicao.MARKETING);
+
+            getLog(dadosEnvioEmail);
         }
     }
 
